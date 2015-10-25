@@ -52,6 +52,7 @@ shinyUI(
                 ),
 
                 tabsetPanel(
+                    tabPanel("Documentation",uiOutput("docs")),
                     tabPanel("Histogram", plotOutput("hist")),
                     tabPanel("Models",uiOutput("models")),
                     tabPanel("Fit",plotOutput("fit")),

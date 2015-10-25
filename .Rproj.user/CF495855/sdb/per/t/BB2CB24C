@@ -1,0 +1,17 @@
+{
+    "contents" : "library(shiny)\n\nshinyUI(\n    fluidPage(\n        withMathJax(),\n        theme = \"bootstrap.min.darkly.css\",\n        # Application title\n        h1(\"Lottery Wizard\"),\n\n        # Input parameters\n        sidebarLayout(\n            sidebarPanel(\n                selectInput(\"select\",\n                            label = h3(\"Random Variable\"),\n                            choices = list(\"R1\" = \"R1\",\n                                           \"R2\" = \"R2\",\n                                           \"R3\" = \"R3\",\n                                           \"R4\" = \"R4\",\n                                           \"R5\" = \"R5\",\n                                           \"R6\" = \"R6\"),\n                            selected = 1),\n\n                checkboxInput(\"densBox\",\n                              label = \"Plot Density Curve\",\n                              value = FALSE),\n\n                sliderInput(\"bins\",\n                            \"Number of bins in Histogram:\",\n                            min = 1,\n                            max = 50,\n                            value = 10),\n\n                radioButtons(\"dist\",\n                             \"Fitting Distribution:\",\n                             c(\"Normal\" = \"norm\",\n                               \"Uniform\" = \"unif\",\n                               \"Gamma\" = \"gamma\",\n                               \"Beta\" = \"beta\",\n                               \"Logistic\" = \"logis\",\n                               \"Log-normal\" = \"lnorm\",\n                               \"Exponential\" = \"exp\",\n                               \"Weibull\" = \"weibull\")\n                             )\n            ),\n\n            # Show results\n            mainPanel(\n                div(img(src=\"lucky.jpg\", height = 100, width = 100),\n                    img(src=\"lotto.jpg\", height = 150, width = 300),\n                    style=\"text-align: center;\n                    background-color: rgba(255, 255, 255, 1.0)\"\n                ),\n\n                tabsetPanel(\n                    tabPanel(\"Documentation\",uiOutput(\"docs\")),\n                    tabPanel(\"Histogram\", plotOutput(\"hist\")),\n                    tabPanel(\"Models\",uiOutput(\"models\")),\n                    tabPanel(\"Fit\",plotOutput(\"fit\")),\n                    tabPanel(\"Play\", dataTableOutput(\"play\")),\n                    tabPanel(\"Distribution\", plotOutput(\"dist\")),\n                    tabPanel(\"Data\", dataTableOutput(\"table\"))\n                )\n            )\n        )\n    )\n)\n",
+    "created" : 1443292077718.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "104103171",
+    "id" : "BB2CB24C",
+    "lastKnownWriteTime" : 1445795840,
+    "path" : "C:/Users/TOSHIBA/Desktop/Marquez - Coursera/Curso 9 - Developing data Products/Course_Project/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

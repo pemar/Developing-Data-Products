@@ -22,7 +22,25 @@ shinyServer(function(input, output) {
         }
     })
 
-    output$models <- renderUI({
+    output$docs <- renderUI({
+        withMathJax(
+        helpText('This application plays a lottery game using Mexico\'s Melate'),
+        helpText('On left panel are all options you can select.'),
+        helpText('1. You can choose between 6 random variables R1-R6 to analyse.'),
+        helpText('2. Histogram panel shows the histogram of Random Variable chosen.'),
+        helpText('3 Plot Density Curve option shows density curve over hostogram. '),
+        helpText('4. You can chose number of bins shown in histogram by slyding bar.'),
+        helpText('5. Fitting Distribution optins allow you to select a distribution to haow well it'),
+
+        helpText('6. Models panel show all mathematical formulas of distribution models used.'),
+        helpText('7. Fit Panel shows four plots indicating how well a fit is.'),
+        helpText('8. Distribution Panel shows a Cullen and Frey graph which indicates how data are distributed.'),
+        helpText('9. Data Panel shows a data table with results of each random variable.'),
+        helpText('10. Play Panel shows three suggested games.')
+        )
+    })
+
+        output$models <- renderUI({
         withMathJax(
             helpText('Normal: $$f(x;\\mu,\\lambda) =
                     \\frac{1}{\\sigma \\sqrt{2\\pi}}
@@ -53,7 +71,7 @@ shinyServer(function(input, output) {
 
     output$fit <- renderPlot({
         x    <- R[,input$select]
-        x <- x/(max(x) + 0.0001)
+        # <- x/(max(x) + 0.0001)
         #fit <- fitdist(x, distr=input$dist)
         ##print(fit)
         ##fit$aic
